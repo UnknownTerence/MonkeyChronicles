@@ -15,21 +15,9 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if(Input.GetKey(KeyCode.W)) {
-            /*
-            if (Input.GetKey(KeyCode.LeftShift)) {
-                hip.AddForce(hip.transform.forward * speed * 1.5);
-            }
-            else
-            */
-            hip.AddForce(hip.transform.forward * speed);
-        }
-        if(Input.GetKey(KeyCode.A))
+        if(Input.GetKey(KeyCode.W))
             hip.AddForce(-hip.transform.right * strafeSpeed);
         if(Input.GetKey(KeyCode.S))
-            hip.AddForce(-hip.transform.forward * speed);
-        if(Input.GetKey(KeyCode.D))
-            hip.AddForce(hip.transform.right * strafeSpeed);
-            
+            hip.AddForce(hip.transform.right * strafeSpeed);           
     }
 }
