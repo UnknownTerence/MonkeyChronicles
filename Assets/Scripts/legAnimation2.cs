@@ -5,6 +5,7 @@ using UnityEngine;
 public class legAnimation2 : MonoBehaviour
 {
     // Start is called before the first frame update
+    public double limit = 4.5; 
     private double interval = 0.0; 
     public ConfigurableJoint configurableJoint; 
     public int direction = 0; 
@@ -21,6 +22,6 @@ public class legAnimation2 : MonoBehaviour
             configurableJoint.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction)); 
         } else configurableJoint.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); 
         Debug.Log(interval); 
-        if (interval>4.5) {direction*=-1; interval=0.0;}
+        if (interval>limit) {direction*=-1; interval=0.0;}
     }
 }
