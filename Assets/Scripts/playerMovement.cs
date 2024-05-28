@@ -17,6 +17,11 @@ public class hipThrust : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
             hip.AddForce(hip.transform.forward * speed);
         if(Input.GetKey(KeyCode.S))
-            hip.AddForce(-hip.transform.forward * speed);           
+            hip.AddForce(-hip.transform.forward * speed);        
+        if(Input.GetKey(KeyCode.A))
+            hip.AddForce(-hip.transform.right * speed);
+        if(Input.GetKey(KeyCode.D))
+            hip.AddForce(hip.transform.right * speed);        
+        
     }
 }
