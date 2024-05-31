@@ -21,9 +21,9 @@ public class headAnimation : MonoBehaviour
             head.AddTorque(-transform.forward*power);
         }
         if(Input.GetKey(KeyCode.A)) {
-             head.AddTorque(transform.right*power*1000);
+             head.AddTorque(-transform.right*power*1000);
         } else if (Input.GetKey(KeyCode.D)) {
-            head.AddTorque(-transform.right*power*1000);
+            head.AddTorque(transform.right*power*1000);
         }
     }
 }
