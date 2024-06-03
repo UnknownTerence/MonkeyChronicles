@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class legAnimation2 : MonoBehaviour
+public class LegAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
     public double limit = 4.5; 
