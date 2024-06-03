@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class headAnimation : MonoBehaviour
+public class HeadAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
     public Rigidbody head; 
