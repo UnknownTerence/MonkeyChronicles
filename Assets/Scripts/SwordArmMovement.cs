@@ -29,6 +29,9 @@ public class SwordArmMovement : MonoBehaviour
 
     public float translateMousePosY(Vector3 v) {
         float center = Screen.height/2; 
-        return (float)(Input.mousePosition.y-center)*configurationFactorY;
+        float limit = Input.mousePosition.y-center;
+        if (limit > 400) limit = 400; 
+        else if (limit < -400) limit = -400;
+        return (float)(limit)*configurationFactorY;
     }
 }
