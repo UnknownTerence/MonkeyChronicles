@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571337, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3394,6 +3394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1587723018}
+  - component: {fileID: 1587723019}
   - component: {fileID: 1587723017}
   - component: {fileID: 1587723016}
   m_Layer: 0
@@ -3471,12 +3472,28 @@ Transform:
   m_GameObject: {fileID: 1587723015}
   serializedVersion: 2
   m_LocalRotation: {x: 0.12278779, y: -0.6963643, z: 0.12278779, w: 0.6963643}
-  m_LocalPosition: {x: 5, y: 5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 5, y: 9.3822, z: 0}
+  m_LocalScale: {x: 1, y: 0.49547648, z: 0.9331637}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 2055228713}
+  m_Father: {fileID: 1610838609}
   m_LocalEulerAnglesHint: {x: 20, y: -90, z: 0}
+--- !u!114 &1587723019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587723015}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a90d979d90ca64db3a680f00a279ac5b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distanceX: 6
+  distanceZ: 0
+  distanceY: 3
+  reference: {fileID: 2055228712}
 --- !u!1 &1610838608
 GameObject:
   m_ObjectHideFlags: 0
@@ -3522,6 +3539,7 @@ Transform:
   - {fileID: 469366191}
   - {fileID: 1749985671}
   - {fileID: 249889483}
+  - {fileID: 1587723018}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1611896179
@@ -4880,7 +4898,6 @@ Transform:
   - {fileID: 674203692}
   - {fileID: 163997083}
   - {fileID: 189511192}
-  - {fileID: 1587723018}
   m_Father: {fileID: 1610838609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!153 &2055228714
