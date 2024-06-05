@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyMovement : EnemyController
 {
     public Transform Enemy; 
-
     //HEAD ANIMATION 
     public Rigidbody head; 
     public float headPower = 0.0f;
@@ -55,6 +54,8 @@ public class EnemyMovement : EnemyController
             LegL.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f)); //right leg 
         }
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
-        Enemy.transform.rotation = targetRotation; 
+
+        // looks towards the player
+        transform.LookAt(Enemy);
     }
 }

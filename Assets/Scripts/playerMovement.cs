@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKey(KeyCode.W))
             hip.AddForce(-hip.transform.right * speed);
         if(Input.GetKey(KeyCode.S))
-            hip.AddForce(hip.transform.right * speed);        
-        
+            hip.AddForce(hip.transform.right * speed);
+
     }
 }
