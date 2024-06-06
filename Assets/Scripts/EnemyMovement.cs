@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMovement : EnemyController
 {
-    public Transform Enemy; 
+    public Transform target; 
     //HEAD ANIMATION 
     public Rigidbody head; 
     public float headPower = 0.0f;
@@ -26,28 +26,27 @@ public class EnemyMovement : EnemyController
     {
         //WALKING & STRAFING 
         // forward and backwards movement
-        if(movingFoward) {
+        if(movingLeft) {
             hip.AddForce(-hip.transform.right * speed); // adding a force to the hip 
             interval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 55*direction*-1)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 55*direction)); //left leg 
-        } else if (movingBackward) {
+        } else if (movingRight) {
             hip.AddForce(hip.transform.right * speed);   //adding a force to the hip 
             interval+=0.1; 
             LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction*-1)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction)); //left leg 
         } else { LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); } //if nothing pressed, snap legs bag into default position 
-        Debug.Log(interval); 
         if (interval>limit) {direction*=-1; interval=0.0;}
 
         // strafe movement
-        if(movingLeft) {
+        if(movingBackward) {
             hip.AddForce(-hip.transform.forward * speed);  
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection*-1, 0f, 0f)); //right leg
             LegL.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection, 0f, 0f)); //left leg 
         }
-        if(movingRight) {
+        if(movingFoward) {
             hip.AddForce(hip.transform.forward * speed);
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(35*sDirection*-1, 0f, 0f)); //right leg 
@@ -56,6 +55,9 @@ public class EnemyMovement : EnemyController
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
 
         // looks towards the player
-        transform.LookAt(Enemy);
+        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
+        transform.LookAt(targetPosition);
+        
+
     }
 }

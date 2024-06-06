@@ -21,7 +21,7 @@ public class EnemyController : MonoBehaviour
         if (isRanged) {
             //isRanged ai is here, controls everything 
         } else {
-            
+            movingFoward = true; 
 
         }
     }
