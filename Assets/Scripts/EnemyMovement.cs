@@ -31,11 +31,13 @@ public class EnemyMovement : EnemyController
             interval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 55*direction*-1)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 55*direction)); //left leg 
+            hip.AddForce(hip.transform.up * 80);
         } else if (movingRight) {
             hip.AddForce(hip.transform.right * speed);   //adding a force to the hip 
             interval+=0.1; 
             LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction*-1)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction)); //left leg 
+            hip.AddForce(hip.transform.up * 80);
         } else { LegR.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); LegL.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); } //if nothing pressed, snap legs bag into default position 
         if (interval>limit) {direction*=-1; interval=0.0;}
 
@@ -45,12 +47,14 @@ public class EnemyMovement : EnemyController
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection*-1, 0f, 0f)); //right leg
             LegL.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection, 0f, 0f)); //left leg 
+            hip.AddForce(hip.transform.up * 80);
         }
         if(movingFoward) {
             hip.AddForce(hip.transform.forward * speed);
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(35*sDirection*-1, 0f, 0f)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f)); //right leg 
+            hip.AddForce(hip.transform.up * 80);
         }
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
 

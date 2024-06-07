@@ -36,7 +36,7 @@ public class LegAnimation : MonoBehaviour
             strafeInterval+=0.1;
             configurableJoint.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection, 0f, 0f));
         }
-        if(Input.GetKey(KeyCode.D)) {
+        else if(Input.GetKey(KeyCode.D)) {
             strafeInterval+=0.1;
             configurableJoint.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f));
         }
