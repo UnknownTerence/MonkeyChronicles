@@ -5,7 +5,7 @@ using UnityEngine;
 public class LegAnimation : MonoBehaviour
 {
     // Start is called before the first frame update
-    public double limit = 4.5; 
+    private double limit = 2; 
     private double interval = 0.0; 
     private double strafeInterval = 0.0;
     public ConfigurableJoint configurableJoint; 
@@ -28,7 +28,6 @@ public class LegAnimation : MonoBehaviour
             interval+=0.1; 
             configurableJoint.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, -55*direction)); 
         } else configurableJoint.targetRotation = Quaternion.Euler(new Vector3(0f, 0f, 0f)); 
-        Debug.Log(interval); 
         if (interval>limit) {direction*=-1; interval=0.0;}
 
         // strafe movement
