@@ -3533,6 +3533,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 50
   hip: {fileID: 527774461}
+  player: {fileID: 746214544}
 --- !u!33 &1477358292
 MeshFilter:
   m_ObjectHideFlags: 0
