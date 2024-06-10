@@ -9,13 +9,14 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 0.0f; // fwd and bwd
     private float mouseX = 0.0f;
     public Rigidbody hip; // reference to the rigidbody
+    
     private void Start()
     {
         hip = GetComponent<Rigidbody>();
     }
     private void FixedUpdate()
     {
-        mouseX = rotatePlayerX(Input.mousePosition);
+        //mouseX = rotatePlayerX(Input.mousePosition);
 
         if(Input.GetKey(KeyCode.D))
             hip.AddForce(hip.transform.forward * speed);
@@ -28,9 +29,10 @@ public class PlayerMovement : MonoBehaviour
         if(Input.anyKey)
             hip.AddForce(hip.transform.up * 100);
 
-        hip.transform.LookAt(new Vector3(hip.transform.rotation.x,hip.transform.rotation.y+mouseX,hip.transform.rotation.y));
+        //hip.transform.LookAt(new Vector3(hip.transform.rotation.x,hip.transform.rotation.y+mouseX,hip.transform.rotation.y));
 
     }
+    /*
     private float rotatePlayerX(Vector3 mousePos) {
         float horizontal = mousePos.x;
         if (horizontal > (Screen.width*0.90)) {
@@ -44,4 +46,5 @@ public class PlayerMovement : MonoBehaviour
         else
             return 0.0f;
     }
+    */ 
 }

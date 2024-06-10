@@ -5,33 +5,50 @@ using UnityEngine;
 public class SwordArmMovement : MonoBehaviour
 {
     // Start is called before the first frame update
-    public ConfigurableJoint configurableJoint; 
-    public float configurationFactorX = 0.0f; 
-    public float configurationFactorY = 0.0f; 
-
-    void FixedUpdate()
+    public ConfigurableJoint armAngle; 
+    public float configurationFactor = 1.0f; 
+    public Rigidbody thrust; 
+    private float charge = 0.0f; 
+    void Update()
     {
-        //Z AXIS movement (l r)
-        float mouseXTranslation = translateMousePosX(Input.mousePosition);
-        float mouseYTranslation = translateMousePosY(Input.mousePosition); 
-        Quaternion newRotation = Quaternion.Euler(new Vector3(mouseYTranslation, mouseXTranslation, mouseXTranslation));
-        configurableJoint.targetRotation = newRotation; 
-    }
-
-    public float translateMousePosX(Vector3 v) { //limits 540, -290
-        float center = Screen.width/2; 
-        float limit = Input.mousePosition.x-center; 
-        if (limit > 540) limit = 540; 
-        else if (limit < -290) limit = -310; 
-        return (float)(limit)*configurationFactorX; 
         
+        //charging up attack
+        if (Input.GetKey(KeyCode.K)) { //charging up right attack 
+            Debug.Log("Charge: " + charge); 
+            charge+=Time.deltaTime*2; 
+        } 
+
+        //determining of stage 
+        if (charge==0) armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 0, 0)); 
+        else if (charge<2) {
+            armAngle.targetRotation = Quaternion.Euler(new Vector3(300, 0, 0)); 
+        } else if (charge<4) { 
+            armAngle.targetRotation = Quaternion.Euler(new Vector3(25, 0, 0)); 
+        } else if (charge<6) { 
+            armAngle.targetRotation = Quaternion.Euler(new Vector3(50, 0, 0)); 
+        } else {
+            armAngle.targetRotation = Quaternion.Euler(new Vector3(100, 0, 0)); 
+        } 
+
+        //sword movement
+        if ((!Input.GetKey(KeyCode.K) && !Input.GetKey(KeyCode.J)) && charge>0) {
+            Debug.Log("launching"); 
+            if (charge<2) {
+                armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 330, 0)); 
+                thrust.AddForce(-thrust.transform.right * 10 * configurationFactor); 
+            } else if (charge<4) {
+                armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
+                thrust.AddForce(-thrust.transform.right * 20 * configurationFactor);
+            } else if (charge<6) {
+                armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
+                thrust.AddForce(-thrust.transform.right * 40 * configurationFactor);
+            } else if (charge>6) {
+                armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
+                thrust.AddForce(-thrust.transform.right * 80 * configurationFactor);
+                thrust.AddForce(thrust.transform.up * configurationFactor/4);
+            }
+            charge = 0; 
+        }
     }
 
-    public float translateMousePosY(Vector3 v) {
-        float center = Screen.height/2; 
-        float limit = Input.mousePosition.y-center;
-        if (limit > 400) limit = 400; 
-        else if (limit < -400) limit = -400;
-        return (float)(limit)*configurationFactorY;
-    }
 }
