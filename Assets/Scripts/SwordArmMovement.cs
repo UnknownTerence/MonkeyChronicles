@@ -9,12 +9,16 @@ public class SwordArmMovement : MonoBehaviour
     public float configurationFactor = 1.0f; 
     public Rigidbody thrust; 
     private float charge = 0.0f; 
+    private float finalCharge = 0.0f; 
+    public float getCharge() {
+        return finalCharge; 
+    }
+
     void Update()
     {
         
         //charging up attack
         if (Input.GetKey(KeyCode.K)) { //charging up right attack 
-            Debug.Log("Charge: " + charge); 
             charge+=Time.deltaTime*2; 
         } 
 
@@ -31,8 +35,8 @@ public class SwordArmMovement : MonoBehaviour
         } 
 
         //sword movement
-        if ((!Input.GetKey(KeyCode.K) && !Input.GetKey(KeyCode.J)) && charge>0) {
-            Debug.Log("launching"); 
+        if ((!Input.GetKey(KeyCode.K)) && charge>0) {
+            finalCharge = charge; 
             if (charge<2) {
                 armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 330, 0)); 
                 thrust.AddForce(-thrust.transform.right * 10 * configurationFactor); 
@@ -48,7 +52,7 @@ public class SwordArmMovement : MonoBehaviour
                 thrust.AddForce(thrust.transform.up * configurationFactor/4);
             }
             charge = 0; 
-        }
+        } else finalCharge = 0; 
     }
 
 }

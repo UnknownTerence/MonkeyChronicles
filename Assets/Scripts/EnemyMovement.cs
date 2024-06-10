@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMovement : EnemyController
 {
     public Transform target; 
+
     //HEAD ANIMATION 
     public Rigidbody head; 
     public float headPower = 0.0f;

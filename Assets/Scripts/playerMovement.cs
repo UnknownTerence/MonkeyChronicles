@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
     // This script is from Ragdoll Tutorial - Ragdoll Movement by Happy Chuck Programming
     // Daniel & Terence | 5/26/2024 4:51 PM
     public float speed = 0.0f; // fwd and bwd
-    private float mouseX = 0.0f;
     public Rigidbody hip; // reference to the rigidbody
     
     private void Start()
