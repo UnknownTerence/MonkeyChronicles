@@ -9,6 +9,7 @@ public class GameController : MonoBehaviour
     public float difficultyMultiplier = 0.0f; 
     private float timer = 0.0f; 
     public GameObject enemyObject; 
+    public GameObject enemyTarget; 
     public Transform node1; 
     public Transform node2;
     public Transform node3; 
@@ -29,14 +30,20 @@ public class GameController : MonoBehaviour
 
     private void spawnEnemy() {
         byte node = (byte)Random.Range(0, 4); 
+        GameObject enemy = null; 
+        EnemyController.target = enemyTarget.transform;
         if (node==0) {
-            Instantiate(enemyObject, node1.position, transform.rotation);
+            enemy = Instantiate(enemyObject, node1.position, transform.rotation);
+            
         } else if (node==1) {
-            Instantiate(enemyObject, node2.position, transform.rotation);
+            enemy = Instantiate(enemyObject, node2.position, transform.rotation);
+             
         } else if (node==2) {
-            Instantiate(enemyObject, node3.position, transform.rotation);
+            enemy = Instantiate(enemyObject, node3.position, transform.rotation);
+            
         } else {
-            Instantiate(enemyObject, node4.position, transform.rotation);
+            enemy = Instantiate(enemyObject, node4.position, transform.rotation);
+            
         }
     }
 

@@ -4,11 +4,9 @@ using UnityEngine;
 
 public class EnemyMovement : EnemyController
 {
-    public Transform target; 
-
-    //HEAD ANIMATION 
-    public Rigidbody head; 
-    public float headPower = 0.0f;
+    public Rigidbody head;  
+    //HEAD ANIMATION  
+    public float headPower = 10.0f;
 
     //LEG ANIMATION 
     public double limit = 4.5; 
@@ -21,7 +19,10 @@ public class EnemyMovement : EnemyController
 
     //HIP THRUST 
     public Rigidbody hip; 
-    public float speed = 0.0f; 
+    public float speed = 20.0f; 
+    
+    private void Start() {
+    }
 
     void FixedUpdate()
     {
@@ -48,14 +49,14 @@ public class EnemyMovement : EnemyController
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection*-1, 0f, 0f)); //right leg
             LegL.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection, 0f, 0f)); //left leg 
-            hip.AddForce(hip.transform.up * 80);
+            hip.AddForce(hip.transform.up * 10);
         }
         if(movingFoward) {
             hip.AddForce(hip.transform.forward * speed);
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(35*sDirection*-1, 0f, 0f)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f)); //right leg 
-            hip.AddForce(hip.transform.up * 80);
+            hip.AddForce(hip.transform.up * 10);
         }
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
 
