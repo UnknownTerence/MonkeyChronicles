@@ -11,7 +11,6 @@ public class swordCollisionDetection : MonoBehaviour
         Rigidbody rb = collisionInfo.collider.GetComponent<Rigidbody>();
         if (rb!=null) { //checking if there is an existing rigidbody
             if (collisionInfo.collider.transform.root == enemyRagdoll && (!Input.GetKey(KeyCode.K))) {
-            Debug.Log("Collision with " + swordArmMovement.getCharge());
             rb.AddForce(-rb.transform.forward * 50 * configurationFactor * swordArmMovement.getCharge());   
             rb.AddForce(rb.transform.up * 100 * configurationFactor * swordArmMovement.getCharge());
         }   

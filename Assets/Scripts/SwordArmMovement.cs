@@ -10,8 +10,11 @@ public class SwordArmMovement : MonoBehaviour
     public Rigidbody thrust; 
     private float charge = 0.0f; 
     private float finalCharge = 0.0f; 
+    private float animationDuration;
+
     public float getCharge() {
-        return finalCharge; 
+        if (animationDuration>0.0f) return finalCharge; 
+        else return 0.0f;  
     }
 
     void Update()
@@ -36,23 +39,30 @@ public class SwordArmMovement : MonoBehaviour
 
         //sword movement
         if ((!Input.GetKey(KeyCode.K)) && charge>0) {
-            finalCharge = charge; 
+            if (charge>6) finalCharge = 6.0f;
+            else finalCharge = charge; 
             if (charge<2) {
                 armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 330, 0)); 
                 thrust.AddForce(-thrust.transform.right * 10 * configurationFactor); 
+                animationDuration = 0.5f; 
             } else if (charge<4) {
                 armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
                 thrust.AddForce(-thrust.transform.right * 20 * configurationFactor);
+                animationDuration = 1.0f; 
             } else if (charge<6) {
                 armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
                 thrust.AddForce(-thrust.transform.right * 40 * configurationFactor);
+                animationDuration = 1.5f;
             } else if (charge>6) {
                 armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 350, 0)); 
                 thrust.AddForce(-thrust.transform.right * 80 * configurationFactor);
                 thrust.AddForce(thrust.transform.up * configurationFactor/4);
+                animationDuration = 2.0f; 
             }
-            charge = 0; 
-        } else finalCharge = 0; 
+            charge = 0;
+        } 
+        animationDuration-=Time.deltaTime; 
+        if (animationDuration<0) animationDuration = 0.0f; 
     }
 
 }
