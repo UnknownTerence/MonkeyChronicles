@@ -6,17 +6,15 @@ public class PlayerMovement : MonoBehaviour
 {
     // This script is from Ragdoll Tutorial - Ragdoll Movement by Happy Chuck Programming
     // Daniel & Terence | 5/26/2024 4:51 PM
+
+    public Transform target; 
     public float speed = 0.0f; // fwd and bwd
-    private float mouseX = 0.0f;
     public Rigidbody hip; // reference to the rigidbody
+    private float rotationOffset = 0.0f; 
+    public float rotationSpeed = 1.0f; 
     
-    private void Start()
-    {
-        hip = GetComponent<Rigidbody>();
-    }
     private void FixedUpdate()
     {
-        //mouseX = rotatePlayerX(Input.mousePosition);
 
         if(Input.GetKey(KeyCode.D))
             hip.AddForce(hip.transform.forward * speed);
@@ -28,23 +26,32 @@ public class PlayerMovement : MonoBehaviour
             hip.AddForce(hip.transform.right * speed);
         if(Input.anyKey)
             hip.AddForce(hip.transform.up * 100);
+        // looks towards the enemy 
+        //hip.transform.LookAt(mousePositionTranslation());
 
-        //hip.transform.LookAt(new Vector3(hip.transform.rotation.x,hip.transform.rotation.y+mouseX,hip.transform.rotation.y));
 
+
+        float horizontal = Input.mousePosition.x; 
+        if (horizontal<Screen.width*0.2) {
+            rotationOffset-=rotationSpeed; 
+        } else if (horizontal>Screen.width*0.8) {
+            rotationOffset+=rotationSpeed; 
+        } 
+        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + rotationOffset, transform.rotation.z);
     }
-    /*
-    private float rotatePlayerX(Vector3 mousePos) {
-        float horizontal = mousePos.x;
-        if (horizontal > (Screen.width*0.90)) {
-            Debug.Log("look right bruv");
-            return 60.0f;
-        }
-        else if (horizontal < (Screen.width*0.10)) {
-            Debug.Log("look left bruv");
-            return -60.0f;
-        }
-        else
-            return 0.0f;
+
+    //SECONDARY ROTATION METHOD (slightly janky)
+    /*private Vector3 mousePositionTranslation() {
+        float horizontal = Input.mousePosition.x; 
+        if (horizontal<Screen.width*0.2) {
+            
+            return new Vector3(transform.position.x + 1, transform.position.y, transform.position.z + 20);
+        } else if (horizontal>Screen.width*0.8) {
+            
+            return new Vector3(transform.position.x  + 1, transform.position.y, transform.position.z - 20);
+        } else return new Vector3(transform.position.x, transform.position.y, transform.position.z);
     }
-    */ 
+    */
+    
+  
 }

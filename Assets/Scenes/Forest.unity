@@ -592,13 +592,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 527774460}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 5.667, z: 0}
   m_LocalScale: {x: 1, y: 0.23153825, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 746214545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &537670968
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,7 +1462,7 @@ Transform:
   m_GameObject: {fileID: 746214544}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.390348, y: -3.71, z: -6.668537}
+  m_LocalPosition: {x: 7.8, y: -3.38, z: -5.03}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4010,13 +4010,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1132500868}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.049325276, y: -0.7053843, z: 0.049325276, w: 0.7053843}
-  m_LocalPosition: {x: 15.390348, y: 5.29, z: -6.668537}
-  m_LocalScale: {x: 1, y: 0.49547654, z: 0.93316376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 5.29, z: -6.6685376}
+  m_LocalScale: {x: 1, y: 0.49547657, z: 0.93316424}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 8, y: -90, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!81 &1132500870
 AudioListener:
   m_ObjectHideFlags: 0
@@ -4088,10 +4088,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a90d979d90ca64db3a680f00a279ac5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  distanceX: 6
+  distanceX: 12
   distanceZ: 0
   distanceY: 3
-  reference: {fileID: 1777954284}
+  reference: {fileID: 1477358293}
+  turnReference: {fileID: 1777954286}
 --- !u!1 &1139536519
 GameObject:
   m_ObjectHideFlags: 0
@@ -6176,8 +6177,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed38e0d35b4bdd0468671d46e102affd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 1624013363}
   speed: 50
-  hip: {fileID: 527774461}
+  hip: {fileID: 1477358287}
+  rotationSpeed: 1
 --- !u!33 &1477358292
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6194,13 +6197,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1477358286}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 6.116, z: 0}
   m_LocalScale: {x: 1, y: 0.3892904, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 746214545}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!1 &1499542445
 GameObject:
   m_ObjectHideFlags: 0
@@ -7356,6 +7359,21 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &1707557212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1707557200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ce1710bde6184030862dd66e806d5f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  swordArmMovement: {fileID: 682873196}
+  enemyRagdoll: {fileID: 1991203414}
+  configurationFactor: 25
 --- !u!1 &1777954284
 GameObject:
   m_ObjectHideFlags: 0
@@ -8844,6 +8862,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1ec65c331b33c140907ebe4d9b30f81, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1707557207}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d1ec65c331b33c140907ebe4d9b30f81, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1707557212}
   m_SourcePrefab: {fileID: 100100000, guid: d1ec65c331b33c140907ebe4d9b30f81, type: 3}
 --- !u!1 &1975507668
 GameObject:
@@ -9107,7 +9128,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1991203412}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b34015694a15bbf4b8bca6dd23b38f48, type: 3}
   m_Name: 
