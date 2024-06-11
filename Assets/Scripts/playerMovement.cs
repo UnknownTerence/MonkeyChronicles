@@ -16,16 +16,16 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
 
-        if(Input.GetKey(KeyCode.D))
+        if(Input.GetKey(KeyCode.W))
+            hip.AddForce(-hip.transform.forward * speed);
+        if(Input.GetKey(KeyCode.S))
             hip.AddForce(hip.transform.forward * speed);
         if(Input.GetKey(KeyCode.A))
-            hip.AddForce(-hip.transform.forward * speed);
-        if(Input.GetKey(KeyCode.W))
-            hip.AddForce(-hip.transform.right * speed);
-        if(Input.GetKey(KeyCode.S))
             hip.AddForce(hip.transform.right * speed);
+        if(Input.GetKey(KeyCode.D))
+            hip.AddForce(-hip.transform.right * speed);
         if(Input.anyKey)
-            hip.AddForce(hip.transform.up * 100);
+            hip.AddForce(hip.transform.up * 80);
         // looks towards the enemy 
         //hip.transform.LookAt(mousePositionTranslation());
 
@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
         } else if (horizontal>Screen.width*0.8) {
             rotationOffset+=rotationSpeed; 
         } 
-        transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + rotationOffset, transform.rotation.z);
+        hip.transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y + rotationOffset, transform.rotation.z);        
     }
 
     //SECONDARY ROTATION METHOD (slightly janky)
