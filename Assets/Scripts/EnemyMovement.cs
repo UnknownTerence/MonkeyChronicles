@@ -19,9 +19,18 @@ public class EnemyMovement : EnemyController
 
     //HIP THRUST 
     public Rigidbody hip; 
-    public float speed = 20.0f; 
+    public float speed = 40.0f; 
     
-    private void Start() {
+    //COLLISION WITH SWORD 
+    public float damage = 20.0f; 
+
+    void OnCollisionEnter(Collision collisionInfo) {
+        if (collisionInfo.gameObject.tag == "Sword" && (swordArmMovement.attacking>0.0)) {
+            hip.AddForce(-hip.transform.forward * 50);   
+            hip.AddForce(hip.transform.up * 100);
+            health -= 20; 
+            Debug.Log(health); 
+        }     
     }
 
     void FixedUpdate()
@@ -49,20 +58,20 @@ public class EnemyMovement : EnemyController
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection*-1, 0f, 0f)); //right leg
             LegL.targetRotation = Quaternion.Euler(new Vector3(-35*sDirection, 0f, 0f)); //left leg 
-            hip.AddForce(hip.transform.up * 10);
+            hip.AddForce(hip.transform.up * 30);
         }
         if(movingFoward) {
             hip.AddForce(hip.transform.forward * speed);
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(35*sDirection*-1, 0f, 0f)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f)); //right leg 
-            hip.AddForce(hip.transform.up * 10);
+            hip.AddForce(hip.transform.up * 30);
         }
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
 
         // looks towards the player
-        Vector3 targetPosition = new Vector3(target.position.x, transform.position.y, target.position.z);
-        transform.LookAt(targetPosition);
+        Vector3 targetPosition = new Vector3(target.position.x, hip.transform.position.y, target.position.z);
+        hip.transform.LookAt(targetPosition);
         
 
     }

@@ -13,6 +13,7 @@ public class EnemyController : MonoBehaviour
     [HideInInspector] public double health = 100.0;
     protected bool dying = false;
     public static Transform target; 
+    public static SwordArmMovement swordArmMovement;    
 
     void Start()
     {

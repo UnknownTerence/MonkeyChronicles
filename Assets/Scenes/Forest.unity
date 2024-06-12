@@ -849,13 +849,13 @@ ConfigurableJoint:
   m_RotationDriveMode: 0
   m_AngularXDrive:
     serializedVersion: 4
-    positionSpring: 200
+    positionSpring: 500
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
   m_AngularYZDrive:
     serializedVersion: 4
-    positionSpring: 200
+    positionSpring: 500
     positionDamper: 0
     maximumForce: 3.4028233e+38
     useAcceleration: 0
@@ -962,8 +962,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   armAngle: {fileID: 682873192}
-  configurationFactor: 100
-  thrust: {fileID: 527774461}
+  attacking: 0
 --- !u!4 &682873197
 Transform:
   m_ObjectHideFlags: 0
@@ -4235,15 +4234,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1707557200}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5ce1710bde6184030862dd66e806d5f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  swordArmMovement: {fileID: 682873196}
-  enemyRagdoll: {fileID: 0}
-  configurationFactor: 25
-  damageConfigurationFactor: 50
 --- !u!1 &1777954284
 GameObject:
   m_ObjectHideFlags: 0
@@ -5453,6 +5448,7 @@ MonoBehaviour:
   difficultyMultiplier: 0
   enemyObject: {fileID: 2755098938001252828, guid: 44e06367e1fc04fbabf1c4bcea6e1948, type: 3}
   enemyTarget: {fileID: 511883310}
+  player: {fileID: 746214544}
   node1: {fileID: 864479642}
   node2: {fileID: 95752921}
   node3: {fileID: 758236095}

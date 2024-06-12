@@ -464,7 +464,6 @@ GameObject:
   - component: {fileID: 8639819595284062439}
   - component: {fileID: 5035030072841007446}
   - component: {fileID: 7840368062289496784}
-  - component: {fileID: 2889599277840018735}
   m_Layer: 8
   m_Name: hip
   m_TagString: Untagged
@@ -599,7 +598,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1.0000001, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 8.771696, y: -2.3367, z: -15.953963}
+  m_ConnectedAnchor: {x: -0.84, y: 3.9685383, z: -6.94}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 2
@@ -689,27 +688,6 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
---- !u!114 &2889599277840018735
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2212593471425807057}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bcab4fe556b69c43b385bc9027862f9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
-  target: {fileID: 0}
-  head: {fileID: 192473617571611044}
-  headPower: 500
-  limit: 2
-  LegR: {fileID: 5992110935156543542}
-  LegL: {fileID: 7902732071911873336}
-  hip: {fileID: 5035030072841007446}
-  speed: 50
 --- !u!1 &2731825953631671602
 GameObject:
   m_ObjectHideFlags: 0
@@ -858,7 +836,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.15903473, y: 0.06132358, z: 0.43120193}
+  m_ConnectedAnchor: {x: 0.15903461, y: 0.06132358, z: 0.4312024}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -958,6 +936,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8074139229832112158}
   - component: {fileID: 1393259700969163239}
+  - component: {fileID: 5426978029328465165}
   m_Layer: 0
   m_Name: EnemyRagdoll
   m_TagString: Untagged
@@ -1009,6 +988,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!65 &5426978029328465165
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2755098938001252828}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 2, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3091829583989422205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1158,7 +1158,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.00001126535, y: 0.76971406, z: 0.0000032081023}
+  m_ConnectedAnchor: {x: -0.000011565759, y: 0.76971513, z: 0.0000032081023}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -1503,7 +1503,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.41017082, z: 0.24499989}
+  m_ConnectedAnchor: {x: 0.24499992, y: -0.41017082, z: -0.000000029802322}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -2562,7 +2562,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.41017082, z: -0.24499989}
+  m_ConnectedAnchor: {x: -0.24499992, y: -0.41017082, z: 0.000000029802322}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3038,7 +3038,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.9999964, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.8163078, z: 0.00000009435595}
+  m_ConnectedAnchor: {x: 0, y: -0.8163065, z: 0.00000009435595}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3276,7 +3276,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 0.9999964, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: 0.061325118, z: -0.41397}
+  m_ConnectedAnchor: {x: 0, y: 0.061325118, z: -0.41397047}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -3619,7 +3619,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: -1, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.0000118125245, y: 0.58982456, z: 0.000002075831}
+  m_ConnectedAnchor: {x: -0.000012112933, y: 0.5898271, z: 0.000002075831}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -4095,7 +4095,7 @@ ConfigurableJoint:
   m_Anchor: {x: 0, y: 1.0000002, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0, y: -0.5649676, z: 0.000000023588987}
+  m_ConnectedAnchor: {x: 0, y: -0.56497055, z: 0.000000023588987}
   serializedVersion: 3
   m_SecondaryAxis: {x: 0, y: 1, z: 0}
   m_XMotion: 0
@@ -4194,6 +4194,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 575723121222778185}
+  - component: {fileID: 6341421577040460971}
   - component: {fileID: 541114827177314984}
   - component: {fileID: 7818618364297734934}
   - component: {fileID: 3076489795974963295}
@@ -4226,6 +4227,27 @@ Transform:
   - {fileID: 7178718707058216242}
   m_Father: {fileID: 8074139229832112158}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6341421577040460971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7845655829759372146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bcab4fe556b69c43b385bc9027862f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  head: {fileID: 192473617571611044}
+  headPower: 500
+  limit: 2
+  LegR: {fileID: 5992110935156543542}
+  LegL: {fileID: 7902732071911873336}
+  hip: {fileID: 5035030072841007446}
+  speed: 50
+  damage: 20
 --- !u!33 &541114827177314984
 MeshFilter:
   m_ObjectHideFlags: 0
