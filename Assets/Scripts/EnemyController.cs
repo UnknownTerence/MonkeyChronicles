@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     public static Transform target; 
     public static SwordArmMovement swordArmMovement; 
     public static GameController gameController; 
-    private bool attacking = false; 
+    public bool arrived = false; 
 
     void Start()
     {
@@ -23,24 +23,17 @@ public class EnemyController : MonoBehaviour
         rigidbodies = gameObject.transform.root.gameObject.GetComponentsInChildren<Rigidbody>();
     }
 
-    void onCollisionEnter(Collision collisionInfo) { //ISSUE HERE WITH COLLISION GAAGAIN 
-        Debug.Log(collisionInfo.gameObject.tag);
-        if (collisionInfo.gameObject.tag == "Campfire") {
-            attacking = true; 
-        }
-    }
+    
 
     void Update()
     {
-        movingFoward = true;
+        if (!arrived) movingFoward = true;
+        else movingFoward = false; 
+        
         if (health < 0 && !dying)
         {
             dying = true;
             Die();
-        }
-        if (attacking) {
-            gameController.campfireHealth-=Time.deltaTime; 
-            Debug.Log("Health is now" + gameController.campfireHealth);
         }
     }
 

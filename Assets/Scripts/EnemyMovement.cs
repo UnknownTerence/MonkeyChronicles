@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : EnemyController
 {
-    public Rigidbody head;  
-    //HEAD ANIMATION  
-    public float headPower = 10.0f;
 
     //LEG ANIMATION 
     public double limit = 4.5; 
@@ -64,7 +61,7 @@ public class EnemyMovement : EnemyController
             strafeInterval+=0.1;
             LegR.targetRotation = Quaternion.Euler(new Vector3(35*sDirection*-1, 0f, 0f)); //right leg 
             LegL.targetRotation = Quaternion.Euler(new Vector3(35*sDirection, 0f, 0f)); //right leg 
-            hip.AddForce(hip.transform.up * 30);
+            hip.AddForce(hip.transform.up * 80);
         }
         if (strafeInterval>limit) {sDirection*=-1; strafeInterval=0.0;}
 

@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Ground
   - Sword
-  - Campfire
+  - Enemy
   layers:
   - Default
   - TransparentFX

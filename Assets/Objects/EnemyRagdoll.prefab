@@ -939,7 +939,7 @@ GameObject:
   - component: {fileID: 5426978029328465165}
   m_Layer: 0
   m_Name: EnemyRagdoll
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -988,7 +988,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attacking: 0
 --- !u!65 &5426978029328465165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4241,9 +4240,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
-  attacking: 0
-  head: {fileID: 192473617571611044}
-  headPower: 500
   limit: 2
   LegR: {fileID: 5992110935156543542}
   LegL: {fileID: 7902732071911873336}
