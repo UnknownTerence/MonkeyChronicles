@@ -28,8 +28,7 @@ public class EnemyMovement : EnemyController
         if (collisionInfo.gameObject.tag == "Sword" && (swordArmMovement.attacking>0.0)) {
             hip.AddForce(-hip.transform.forward * 50);   
             hip.AddForce(hip.transform.up * 100);
-            health -= 20; 
-            Debug.Log(health); 
+            health -= 20;  
         }     
     }
 

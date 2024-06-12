@@ -10,15 +10,24 @@ public class EnemyController : MonoBehaviour
     protected bool movingBackward = false;
     protected bool movingRight = false;
     protected bool movingLeft = false;
-    [HideInInspector] public double health = 100.0;
+    [HideInInspector] public double health = 60.0;
     protected bool dying = false;
     public static Transform target; 
-    public static SwordArmMovement swordArmMovement;    
+    public static SwordArmMovement swordArmMovement; 
+    public static GameController gameController; 
+    private bool attacking = false; 
 
     void Start()
     {
-        joints = GetComponentsInChildren<ConfigurableJoint>();
-        rigidbodies = GetComponentsInChildren<Rigidbody>();
+        joints = gameObject.transform.root.gameObject.GetComponentsInChildren<ConfigurableJoint>();
+        rigidbodies = gameObject.transform.root.gameObject.GetComponentsInChildren<Rigidbody>();
+    }
+
+    void onCollisionEnter(Collision collisionInfo) { //ISSUE HERE WITH COLLISION GAAGAIN 
+        Debug.Log(collisionInfo.gameObject.tag);
+        if (collisionInfo.gameObject.tag == "Campfire") {
+            attacking = true; 
+        }
     }
 
     void Update()
@@ -28,6 +37,10 @@ public class EnemyController : MonoBehaviour
         {
             dying = true;
             Die();
+        }
+        if (attacking) {
+            gameController.campfireHealth-=Time.deltaTime; 
+            Debug.Log("Health is now" + gameController.campfireHealth);
         }
     }
 
@@ -76,6 +89,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // Destroy the main game object
-        Destroy(gameObject);
+        gameController.score+=5; 
+        Destroy(gameObject.transform.root.gameObject); 
     }
 }

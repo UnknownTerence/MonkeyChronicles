@@ -988,6 +988,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  attacking: 0
 --- !u!65 &5426978029328465165
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4240,6 +4241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+  attacking: 0
   head: {fileID: 192473617571611044}
   headPower: 500
   limit: 2
