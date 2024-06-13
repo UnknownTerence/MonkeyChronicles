@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public double score = 0.0; 
+    public static double score = 0.0; 
     private float difficulty = 20.0f; 
     private float timer = 0.0f; 
     public double campfireHealth = 100.0; 
+    public double money = 10.0; 
+    public int monkeyKilled = 0; 
     public GameObject enemyObject; 
     public GameObject enemyTarget; 
     public GameObject player; 
@@ -21,7 +23,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
-        score+=Time.deltaTime; 
+        score+=Time.deltaTime*monkeyKilled/10; 
         difficulty-=Time.deltaTime*0.1f; 
         if (difficulty<7.0f) difficulty = 7.0f; 
         if (timer < 0.0f) {
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
         }
         timer-=Time.deltaTime;
         if (campfireHealth<0.0) {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("GameOver");
         }
     }
 

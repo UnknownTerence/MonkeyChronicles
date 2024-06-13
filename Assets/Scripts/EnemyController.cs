@@ -29,7 +29,7 @@ public class EnemyController : MonoBehaviour
     {
         if (!arrived) movingFoward = true;
         else movingFoward = false; 
-        
+
         if (health < 0 && !dying)
         {
             dying = true;
@@ -82,7 +82,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // Destroy the main game object
-        gameController.score+=5; 
+        GameController.score+=50; 
         Destroy(gameObject.transform.root.gameObject); 
     }
 }
