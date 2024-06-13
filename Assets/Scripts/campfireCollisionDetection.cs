@@ -17,7 +17,7 @@ public class campfireCollisionDetection : MonoBehaviour
             enemiesColliding.Add(collisionInfo.collider);
             attacking = true;
         }
-        if (collisionInfo.gameObject.CompareTag("Sword")) gameController.campfireHealth+=1; 
+        if (collisionInfo.gameObject.CompareTag("Sword")) gameController.campfireHealth+=0.1; 
     }
 
     void OnCollisionExit(Collision collisionInfo)
