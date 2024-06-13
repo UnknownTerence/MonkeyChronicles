@@ -22,7 +22,7 @@ public class textManager : MonoBehaviour
         if (health) {
           text.text = "Health: " + Math.Round(game.campfireHealth, 1);   
         } else {
-            text.text = "Score: " + Math.Round(game.score, 1); 
+            text.text = "Score: " + Math.Round(GameController.score, 1); 
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
-    public double score = 0.0; 
+    public static double score = 0.0; 
     private float difficulty = 20.0f; 
     private float timer = 0.0f; 
     public double campfireHealth = 100.0; 
@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
         }
         timer-=Time.deltaTime;
         if (campfireHealth<0.0) {
-            SceneManager.LoadScene("Menu");
+            SceneManager.LoadScene("GameOver");
         }
     }
 
