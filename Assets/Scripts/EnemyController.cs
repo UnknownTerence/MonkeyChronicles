@@ -10,20 +10,26 @@ public class EnemyController : MonoBehaviour
     protected bool movingBackward = false;
     protected bool movingRight = false;
     protected bool movingLeft = false;
-    [HideInInspector] public double health = 100.0;
+    [HideInInspector] public double health = 60.0;
     protected bool dying = false;
     public static Transform target; 
-    public static SwordArmMovement swordArmMovement;    
+    public static SwordArmMovement swordArmMovement; 
+    public static GameController gameController; 
+    public bool arrived = false; 
 
     void Start()
     {
-        joints = GetComponentsInChildren<ConfigurableJoint>();
-        rigidbodies = GetComponentsInChildren<Rigidbody>();
+        joints = gameObject.transform.root.gameObject.GetComponentsInChildren<ConfigurableJoint>();
+        rigidbodies = gameObject.transform.root.gameObject.GetComponentsInChildren<Rigidbody>();
     }
+
+    
 
     void Update()
     {
-        movingFoward = true;
+        if (!arrived) movingFoward = true;
+        else movingFoward = false; 
+        
         if (health < 0 && !dying)
         {
             dying = true;
@@ -76,6 +82,7 @@ public class EnemyController : MonoBehaviour
         }
 
         // Destroy the main game object
-        Destroy(gameObject);
+        gameController.score+=5; 
+        Destroy(gameObject.transform.root.gameObject); 
     }
 }

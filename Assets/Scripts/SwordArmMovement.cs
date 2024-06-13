@@ -18,7 +18,7 @@ public class SwordArmMovement : MonoBehaviour
             } 
         }
         if (attacking>0.0) {
-            armAngle.targetRotation = Quaternion.Euler(new Vector3(0, 0, 0)); 
+            armAngle.targetRotation = Quaternion.Euler(new Vector3(-50, 0, 0)); 
         } else armAngle.targetRotation = Quaternion.Euler(new Vector3(50, 0, 15)); 
 
         attacking-=Time.deltaTime; 
