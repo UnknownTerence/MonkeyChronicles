@@ -1,4 +1,4 @@
-<?php
+<?php session_start(); //THIS STARTS THE SESSION
 // Allow CORS
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 // Handle POST requests
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
     $score = $_POST['score'];
+    $_SESSION['playerScore'] = $score;
 
     // Sanitize the input to prevent code injection
     $score = htmlspecialchars($score);
@@ -27,3 +28,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['score'])) {
     echo "No score received";
 }
 ?>
+
