@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 7eba42663a2bd4a7cbe194800d1f40c4, type: 2}
   m_HaloStrength: 0.477
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0088746045, g: 0.007715052, b: 0.0056083812, a: 1}
+  m_IndirectSpecularColor: {r: 0.0011413224, g: 0.0020929575, b: 0.0035947612, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -15448,7 +15448,7 @@ RectTransform:
   m_GameObject: {fileID: 1991384715}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 142978532}
@@ -15456,7 +15456,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 50, y: 0}
-  m_SizeDelta: {x: 250, y: 50}
+  m_SizeDelta: {x: 400, y: 400}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1991384717
 MonoBehaviour:
@@ -15989,8 +15989,12 @@ MonoBehaviour:
   money: 10
   monkeyKilled: 0
   enemyObject: {fileID: 2755098938001252828, guid: 44e06367e1fc04fbabf1c4bcea6e1948, type: 3}
+  landmine: {fileID: 3190251715168574421, guid: c6d9e355629374916882c991487306a9, type: 3}
+  barrier: {fileID: 116097463600444717, guid: 479e098e8545142698a481e7fb11de30, type: 3}
   enemyTarget: {fileID: 322033843}
   player: {fileID: 746214544}
+  objectSpawnTarget: {fileID: 857049769}
+  objectRotationTarget: {fileID: 527774466}
   node1: {fileID: 864479642}
   node2: {fileID: 95752921}
   node3: {fileID: 758236095}

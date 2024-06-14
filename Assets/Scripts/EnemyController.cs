@@ -83,6 +83,8 @@ public class EnemyController : MonoBehaviour
 
         // Destroy the main game object
         GameController.score+=50; 
+        gameController.money+=4; 
+        gameController.monkeyKilled+=1; 
         Destroy(gameObject.transform.root.gameObject); 
     }
 }

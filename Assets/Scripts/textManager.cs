@@ -26,7 +26,7 @@ public class textManager : MonoBehaviour
         } else if (item ==2) {
             text.text = "Money: " + Math.Round(game.money, 2); 
         } else if (item==3) {
-            text.text = "Ol' Horace's Shoppe - Landmine: $10 [K] | Barrier: $5 [J]";
+            text.text = "Ol' Horace's Shoppe - Score Boost: $50 [K] | Barrier: $5 [J]";
         }
     }
 }

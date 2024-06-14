@@ -12,8 +12,12 @@ public class GameController : MonoBehaviour
     public double money = 10.0; 
     public int monkeyKilled = 0; 
     public GameObject enemyObject; 
+    public GameObject landmine; 
+    public GameObject barrier; 
     public GameObject enemyTarget; 
     public GameObject player; 
+    public GameObject objectSpawnTarget; 
+    public Transform objectRotationTarget; 
     public Transform node1; 
     public Transform node2;
     public Transform node3; 
@@ -34,6 +38,27 @@ public class GameController : MonoBehaviour
         if (campfireHealth<0.0) {
             SceneManager.LoadScene("GameOver");
         }
+        if (Input.GetKeyDown(KeyCode.K) && money>=50) {
+            score+=150; 
+        }
+        if (Input.GetKeyDown(KeyCode.J) && money>=5) {
+            spawnBarrier(); 
+            money-=5; 
+        }
+    }
+
+    private void spawnLandmine() {
+        GameObject landmineObject = null; 
+        Vector3 spawnPosition = new Vector3(objectSpawnTarget.transform.position.x, 1, objectSpawnTarget.transform.position.z); 
+        landmineObject = Instantiate(landmine, spawnPosition, player.transform.rotation); 
+    }
+
+    private void spawnBarrier() {
+       Vector3 objectEulerAngles = objectRotationTarget.rotation.eulerAngles;
+       GameObject barrierObject = null;
+       Vector3 spawnPosition = new Vector3(objectSpawnTarget.transform.position.x, 1, objectSpawnTarget.transform.position.z);
+       Quaternion spawnRotation = Quaternion.Euler(new Vector3(-90, objectEulerAngles.y+90, 0));
+       barrierObject = Instantiate(barrier, spawnPosition, spawnRotation);
     }
 
     private void spawnEnemy() {
