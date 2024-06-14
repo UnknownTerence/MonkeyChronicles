@@ -39,11 +39,12 @@ public class GameController : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
         if (Input.GetKeyDown(KeyCode.K) && money>=50) {
-            score+=150; 
+            score+=150;
+            money-=50;
         }
         if (Input.GetKeyDown(KeyCode.J) && money>=5) {
             spawnBarrier(); 
-            money-=5; 
+            money-=5;
         }
     }
 
